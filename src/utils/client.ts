@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-import { environment } from '../config';
 
 
 export interface FetchOptions<TVariables> {
@@ -14,23 +13,22 @@ export interface FetchOptions<TVariables> {
 export const customFetch = async <TData, TVariables = unknown>(
   path: string,
   {
-    endpoint = 'jsonapi',
     method = 'GET',
     queryString,
     variables,
-    url = `${environment.base_url}/${endpoint}`,
   }: FetchOptions<TVariables> = {},
 ) => {
 
   const qs =
-    queryString && Object.keys(queryString).length > 0 ? `?${formatQueryString({...queryString, apiKey: environment.api_key})}` : '';
+    queryString && Object.keys(queryString).length > 0 ? `?${formatQueryString({...queryString, apiKey: '183daca270264bad86fc5b72972fb82a'})}` : '';
 
+    console.log(`https://newsapi.org/v2/${path}${qs}`);
   const response = await axios.request<TData>({
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
-    url: `${url}/${path}${qs}`,
+    url: `https://newsapi.org/v2/${path}${qs}`,
     method,
     ...(variables && { data: variables }),
   });

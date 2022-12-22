@@ -1,5 +1,10 @@
 
 
+export interface ArticleResponse {
+  status: string
+  totalResults: number
+  articles: Article[]
+}
 
 export interface Article {
     source: Source
@@ -18,5 +23,5 @@ export interface Article {
   }
 
   export interface FetchArticlesVariables {
-    search?: String
+    q?: String
   }

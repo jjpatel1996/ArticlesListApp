@@ -6,18 +6,21 @@
  * @flow strict-local
  */
 
-import { FC } from 'react';
+import { FC} from 'react';
 import {
-  Text,
   View,
 } from 'react-native';
 import { styles } from './styles';
-
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { ArticlesListScreen } from '../../screens'
+const queryClient = new QueryClient()
 
 export const App: FC = () => {
     return (
-      <View style={styles.container}>
-        <Text>Hello World</Text>
+      <QueryClientProvider client={queryClient}>
+       <View style={styles.container}>  
+        <ArticlesListScreen></ArticlesListScreen>
       </View>
+     </QueryClientProvider>
     );
   };

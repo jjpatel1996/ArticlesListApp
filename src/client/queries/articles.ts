@@ -1,11 +1,11 @@
-import { FetchArticlesVariables, Article } from '../../types';
+import { FetchArticlesVariables, ArticleResponse } from '../../types';
 import { customFetch } from '../../utils/client';
 
 
 export const fetchArticles = (search: String) => {
-  return customFetch<Array<Article>, FetchArticlesVariables>('everything', {
+  return customFetch<ArticleResponse, FetchArticlesVariables>('everything', {
     queryString: {
-      search
+      'q': search
     },
   });
 };
