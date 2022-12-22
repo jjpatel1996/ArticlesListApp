@@ -1,0 +1,5 @@
+android/*
+ios/*
+
+src/i18n/translations/*.json
+src/assets/lotties/*.json
